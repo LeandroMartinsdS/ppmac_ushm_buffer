@@ -1,5 +1,7 @@
 // Buffer definitions
 
+#include <stdbool.h>
+
 #ifndef USHM_BUFFER_H
 #define USHM_BUFFER_H
 
@@ -30,7 +32,7 @@ typedef union {
 } Point;
 
 
-int init_buffer(char *types, Point *ptr_arr[], size_t *frame_bytesize);
+int init_buffer(char *types, Point *ptr_arr[], size_t *frame_bytesize, void* base_memory);
 
 size_t get_frame_len(char *types);
 
