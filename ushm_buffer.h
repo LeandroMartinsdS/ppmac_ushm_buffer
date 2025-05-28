@@ -1,10 +1,16 @@
-// Buffer definitions
-
-#include <stdbool.h>
+/*
+ * =============================================================================
+ * File        : ushm_buffer.h
+ * Author      : Leandro Martins dos Santos
+ * Description : Functions and constants declarations for handling buffers
+ *               in the user shared memory.
+ * =============================================================================
+ */
 
 #ifndef USHM_BUFFER_H
 #define USHM_BUFFER_H
 
+// Buffer definitions
 ////////////////////////////////////////////////////////////////////////////////////////
 // Constants
 #define INT_SHIFT       2   // sizeof(int) == 2^2
@@ -15,15 +21,8 @@
 #define USHM_BUFF_SIZE    1000
 #define MAX_FRAME_NUMEL   20
 
-// Mode
-// PVT_MODE or RT_MODE
-//#define PVT_MODE
-//#define RT_MODE
-// FRAMES_INTERLEAVED or FRAMES_SEQUENTIAL
-//#define FRAMES_INTERLEAVED
-//#define FRAMES_SEQUENTIAL
-
 ////////////////////////////////////////////////////////////////////////////////////////
+#include <stdbool.h>
 
 ////////////////////////////////////////////////////////////////////////////////////////
 typedef union {
@@ -32,7 +31,7 @@ typedef union {
 } Point;
 
 
-int init_buffer(char *types, Point *ptr_arr[], size_t *frame_bytesize, void* base_memory);
+int init_buffer(char *types, Point *ptr_arr[], size_t *frame_bytesize, void *base_memory);
 
 size_t get_frame_len(char *types);
 
@@ -50,6 +49,6 @@ void write_frame(char *types, Point *ptr_arr[], size_t size, Point values[]);
 void test_write_buffer(char *frame_types, Point *ptr_arr[], size_t size);
 void test_print_buffer(char *frame_types, Point *ptr_arr[], size_t size);
 
-#endif // USHM_BUFFER_H
-
 ////////////////////////////////////////////////////////////////////////////////////////
+
+#endif // USHM_BUFFER_H
